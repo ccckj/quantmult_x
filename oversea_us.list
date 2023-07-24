@@ -4,3 +4,4 @@ HOST,cdn.auth0.com,海外服务
 HOST,o33249.ingest.sentry.io,海外服务
 HOST-SUFFIX,ai.com,海外服务
 HOST-KEYWORD,openai,海外服务
+HOST-KEYWORD,anthropic,海外服务
