@@ -30,8 +30,8 @@
 
 
 
-// const $tool = new Tool()
-// const consoleLog = false;
+const $tool = new Tool()
+const consoleLog = false;
 
 if (!$tool.isResponse) {
     var modifiedHeaders = $request.headers;
