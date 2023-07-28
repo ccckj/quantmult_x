@@ -36,9 +36,10 @@ const consoleLog = false;
 
 if (!$tool.isResponse) {
     let headers = $request.headers
-    headers['Host'] = "baidu.com"
-    $done({$request});
+    headers['User-Agent'] = "Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.3 Mobile/15E148 Safari/604.1"
+    $done({});
 }
+
 
 
 function Tool() {
