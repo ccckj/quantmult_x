@@ -3,6 +3,7 @@ const consoleLog = false;
 
 if (!$tool.isResponse) {
     let headers = $request.headers
+    $tool.notify("111","2222",JSON.stringify(headers))
     $done({body: headers});
 }
 
