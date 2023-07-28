@@ -40,6 +40,8 @@ if (!$tool.isResponse) {
 
     $done({headers : modifiedHeaders});
 
+} else {
+    $done({});
 }
 
 
