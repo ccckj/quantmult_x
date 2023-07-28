@@ -1,10 +1,43 @@
+
+/**
+ * @fileoverview Example to compose HTTP request
+ * and handle the response.
+ *
+ */
+
+// const url = "https://example.com/";
+// const method = "POST";
+// const headers = {"Field": "test-header-param"};
+// const data = {"info": "abc"};
+
+// const myRequest = {
+//     url: url,
+//     method: method, // Optional, default GET.
+//     headers: headers, // Optional.
+//     body: JSON.stringify(data) // Optional.
+// };
+
+// $task.fetch(myRequest).then(response => {
+//     // response.statusCode, response.headers, response.body
+//     console.log(response.body);
+//     $notify("Title", "Subtitle", response.body); // Success!
+//     $done();
+// }, reason => {
+//     // reason.error
+//     $notify("Title", "Subtitle", reason.error); // Error!
+//     $done();
+// });
+
+
+
+
 const $tool = new Tool()
 const consoleLog = false;
 
 if (!$tool.isResponse) {
     let headers = $request.headers
-    $tool.notify("111","2222",JSON.stringify(headers))
-    $done({body: headers});
+    headers['Host'] = "baidu.com"
+    $done({$request});
 }
 
 
