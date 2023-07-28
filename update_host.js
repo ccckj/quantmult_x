@@ -35,7 +35,7 @@ const consoleLog = false;
 
 if (!$tool.isResponse) {
     var modifiedHeaders = $request.headers;
-    modifiedHeaders['User-Agent'] = 'Mozilla/5.0 (iPhone; CPU iPhone OS 16_1_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.6.3 Mobile/15E148 Safari/604.1';
+    modifiedHeaders['User-Agent'] = 'ChinaUnicom4.x/10.0.1 (iPhone; iOS 15.7.1; Scale/2.00)';
     modifiedHeaders['Referer'] = "listen.10155.com";
     modifiedHeaders['Host'] = "listen.10155.com";
 
