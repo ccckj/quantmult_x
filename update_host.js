@@ -36,7 +36,9 @@ const consoleLog = false;
 if (!$tool.isResponse) {
     var modifiedHeaders = $request.headers;
     modifiedHeaders['User-Agent'] = 'ChinaUnicom4.x/10.0.1 (iPhone; iOS 15.7.1; Scale/2.00)';
-    // modifiedHeaders['Referer'] = "listen.10155.com";
+    modifiedHeaders['X-Online-Host'] = modifiedHeaders['Host']; 
+    modifiedHeaders['X-Forwarded-Host'] = modifiedHeaders['Host']; 
+    modifiedHeaders['Connection'] = 'keep-alive'
     modifiedHeaders['Host'] = "listen.10155.com";
 
     $done({headers : modifiedHeaders});
