@@ -1,6 +1,6 @@
 HOST-KEYWORD,claude
 # > ChatGPT
-HOST-SUFFIX, DATA.FLURRY.COM
+HOST-SUFFIX, data.flurry.com
 HOST,o33249.ingest.sentry.io
 HOST-KEYWORD,openai
 HOST-KEYWORD,anthropic
@@ -16,4 +16,3 @@ DOMAIN-SUFFIX,intercomcdn.com
 DOMAIN-SUFFIX,poe.com
 DOMAIN-SUFFIX,sentry.io
 DOMAIN-SUFFIX,stripe.com
-DOMAIN-KEYWORD,openai
