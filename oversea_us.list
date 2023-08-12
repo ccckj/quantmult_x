@@ -1,5 +1,6 @@
 HOST-KEYWORD,claude
 # > ChatGPT
+HOST-SUFFIX, CHAT.OPENAI.COM
 HOST-SUFFIX,data.flurry.com
 HOST,o33249.ingest.sentry.io
 HOST-KEYWORD,openai.com
