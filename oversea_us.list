@@ -1,5 +1,6 @@
 HOST-KEYWORD,claude,海外服务
 # > ChatGPT
+HOST-SUFFIX, DATA.FLURRY.COM, 海外服务
 HOST,o33249.ingest.sentry.io,海外服务
 HOST-KEYWORD,openai,海外服务
 HOST-KEYWORD,anthropic,海外服务
