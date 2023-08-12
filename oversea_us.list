@@ -1,7 +1,18 @@
 HOST-KEYWORD,claude,海外服务
 # > ChatGPT
-HOST,cdn.auth0.com,海外服务
 HOST,o33249.ingest.sentry.io,海外服务
-HOST-SUFFIX,ai.com,海外服务
 HOST-KEYWORD,openai,海外服务
 HOST-KEYWORD,anthropic,海外服务
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,auth0.com
+DOMAIN-SUFFIX,challenges.cloudflare.com
+DOMAIN-SUFFIX,client-api.arkoselabs.com
+DOMAIN-SUFFIX,events.statsigapi.net
+DOMAIN-SUFFIX,featuregates.org
+DOMAIN-SUFFIX,identrust.com
+DOMAIN-SUFFIX,intercom.io
+DOMAIN-SUFFIX,intercomcdn.com
+DOMAIN-SUFFIX,poe.com
+DOMAIN-SUFFIX,sentry.io
+DOMAIN-SUFFIX,stripe.com
+DOMAIN-KEYWORD,openai
