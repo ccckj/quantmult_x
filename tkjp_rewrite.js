@@ -37,20 +37,20 @@ if (!$tool.isResponse) {
     let modifiedHeaders = $request.headers;
     let url = $request.url;
     const newUrl = /^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+)/;
-    const newUrl2 = /^(https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+)/
+    const newUrl2 = /^(https?:\/\/.*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+)/
     if (newUrl.test(url)) {
-        let new_url = url.replace(
+        url = url.replace(
             newUrl,
             '$1$3' 
           );
-        $done({'url':new_url});
+        $done({'url':url});
     }
     if (newUrl2.test(url)) {
-        let new_url = url.replace(
+        url = url.replace(
             newUrl2,
             '$118.0$3' 
           );
-        $done({'url':new_url});
+        //$done({'url':new_url});
     }
 
     let queryString = url.split('?')[1];
