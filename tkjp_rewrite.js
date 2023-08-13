@@ -56,7 +56,7 @@ if (!$tool.isResponse) {
     let queryString = url.split('?')[1];
     let queryParams = queryString.split('&');
     const account_region = /account_region/;
-    const region = /_region$/; 
+    const region = /1?_region$/; 
     const mcc_mnc = /mcc_mnc/;
     const carrier = /carrier/;
     const tz_offset = /tz_offset/;
