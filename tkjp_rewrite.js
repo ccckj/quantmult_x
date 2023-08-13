@@ -71,7 +71,7 @@ if (!$tool.isResponse) {
           pair[1] = 'JP';
           queryParams[i] = pair.join('=');
         } else if(mcc_mnc.test(pair[0])) {
-            pair[1] = '310032'; 
+            pair[1] = '44001'; 
           queryParams[i] = pair.join('=');
         } else if (carrier.test(pair[0])) {
             pair[1] = 'docomo'; 
