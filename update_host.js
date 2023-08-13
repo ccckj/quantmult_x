@@ -34,14 +34,64 @@ const $tool = new Tool()
 const consoleLog = false;
 
 if (!$tool.isResponse) {
-    var modifiedHeaders = $request.headers;
-    modifiedHeaders['User-Agent'] = 'ChinaUnicom4.x/10.0.1 (iPhone; iOS 15.7.1; Scale/2.00)';
-    modifiedHeaders['X-Online-Host'] = modifiedHeaders['Host']; 
-    modifiedHeaders['X-Forwarded-Host'] = modifiedHeaders['Host']; 
-    //modifiedHeaders['Connection'] = 'keep-alive'
-    modifiedHeaders['Host'] = "listen.10155.com";
+    let modifiedHeaders = $request.headers;
+    let url = $request.url;
+    const newUrl = /^(https?:\/\/(tnc|dm)[\w-]+\.\w+\.com\/.+)(\?)(.+)/;
+    const newUrl2 = /^(https?:\/\/*\.\w{4}okv.com\/.+&.+)(\d{2}\.3\.\d)(.+)/
+    if (newUrl.test(url)) {
+        let new_url = url.replace(
+            newUrl,
+            '$1$3' 
+          );
+        $done({'url':new_url});
+    }
+    if (newUrl2.test(url)) {
+        let new_url = url.replace(
+            newUrl2,
+            '$118.0$3' 
+          );
+        $done({'url':new_url});
+    }
 
-    $done({headers : modifiedHeaders});
+    let queryString = url.split('?')[1];
+    let queryParams = queryString.split('&');
+    const region = /_region$/; 
+    const mcc_mnc = /mcc_mnc/;
+    const carrier = /carrier/;
+    const tz_offset = /tz_offset/;
+    const tz_name = /tz_name/;
+    const timezone = /timezone/;
+    for(let i = 0; i < queryParams.length; i++) {
+        let pair = queryParams[i].split('=');
+        if(region.test(pair[0])) {
+          pair[1] = 'JP'; 
+          queryParams[i] = pair.join('=');
+        } else if(mcc_mnc.test(pair[0])) {
+            pair[1] = '44001'; 
+          queryParams[i] = pair.join('=');
+        } else if (carrier.test(pair[0])) {
+            pair[1] = 'docomo'; 
+          queryParams[i] = pair.join('=');
+        } else if (tz_offset.test(pair[0])) {
+            pair[1] = '32400'; 
+          queryParams[i] = pair.join('=');
+        } else if (tz_name.test(pair[0])) {
+            pair[1] = 'Asia/Toyko'; 
+          queryParams[i] = pair.join('=');
+        } else if (timezone.test(pair[0])) {
+            pair[1] = '9'; 
+          queryParams[i] = pair.join('=');
+        }
+    }
+    url = url.split('?')[0] + '?' + queryParams.join('&');
+
+    // modifiedHeaders['User-Agent'] = 'ChinaUnicom4.x/10.0.1 (iPhone; iOS 15.7.1; Scale/2.00)';
+    // modifiedHeaders['X-Online-Host'] = modifiedHeaders['Host']; 
+    // modifiedHeaders['X-Forwarded-Host'] = modifiedHeaders['Host']; 
+    // //modifiedHeaders['Connection'] = 'keep-alive'
+    // modifiedHeaders['Host'] = "listen.10155.com";
+
+    $done({'url' : url});
 
 } else {
     $done({});
