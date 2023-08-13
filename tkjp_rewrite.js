@@ -64,7 +64,7 @@ if (!$tool.isResponse) {
     for(let i = 0; i < queryParams.length; i++) {
         let pair = queryParams[i].split('=');
         if(region.test(pair[0])) {
-          pair[1] = 'JP'; 
+          pair[1] = 'US'; 
           queryParams[i] = pair.join('=');
         } else if(mcc_mnc.test(pair[0])) {
             pair[1] = '44001'; 
