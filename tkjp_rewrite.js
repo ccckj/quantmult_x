@@ -55,6 +55,7 @@ if (!$tool.isResponse) {
 
     let queryString = url.split('?')[1];
     let queryParams = queryString.split('&');
+    const account_region = /account_region/;
     const region = /_region$/; 
     const mcc_mnc = /mcc_mnc/;
     const carrier = /carrier/;
@@ -63,7 +64,10 @@ if (!$tool.isResponse) {
     const timezone = /timezone/;
     for(let i = 0; i < queryParams.length; i++) {
         let pair = queryParams[i].split('=');
-        if(region.test(pair[0])) {
+        if(account_region.test(pair[0])) {
+           pair[1] = 'jp';
+           queryParams[i] = pair.join('=');
+        } else if(region.test(pair[0])) {
           pair[1] = 'JP';
           queryParams[i] = pair.join('=');
         } else if(mcc_mnc.test(pair[0])) {
