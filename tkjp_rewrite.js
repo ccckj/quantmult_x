@@ -65,25 +65,25 @@ if (!$tool.isResponse) {
     for(let i = 0; i < queryParams.length; i++) {
         let pair = queryParams[i].split('=');
         if(account_region.test(pair[0])) {
-           pair[1] = 'jp';
+           pair[1] = 'us';
            queryParams[i] = pair.join('=');
         } else if(region.test(pair[0])) {
-          pair[1] = 'JP';
+          pair[1] = 'US';
           queryParams[i] = pair.join('=');
         } else if(mcc_mnc.test(pair[0])) {
-            pair[1] = '310032'; 
+            pair[1] = '310005'; 
           queryParams[i] = pair.join('=');
         } else if (carrier.test(pair[0])) {
             pair[1] = 'docomo'; 
           queryParams[i] = pair.join('=');
         } else if (tz_offset.test(pair[0])) {
-            pair[1] = '32400'; 
+            pair[1] = 'Verizon'; 
           queryParams[i] = pair.join('=');
         } else if (tz_name.test(pair[0])) {
-            pair[1] = 'Asia/Toyko'; 
+            pair[1] = 'America/New_York'; 
           queryParams[i] = pair.join('=');
         } else if (timezone.test(pair[0])) {
-            pair[1] = '9'; 
+            pair[1] = '-4'; 
           queryParams[i] = pair.join('=');
         }
     }
