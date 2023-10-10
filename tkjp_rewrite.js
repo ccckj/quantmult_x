@@ -45,13 +45,13 @@ if (!$tool.isResponse) {
           );
         $done({'url':url});
     }
-    if (newUrl2.test(url)) {
-        url = url.replace(
-            newUrl2,
-            '$118.0$3' 
-          );
-        //$done({'url':new_url});
-    }
+    // if (newUrl2.test(url)) {
+    //     url = url.replace(
+    //         newUrl2,
+    //         '$118.0$3' 
+    //       );
+    //     //$done({'url':new_url});
+    // }
 
     let queryString = url.split('?')[1];
     let queryParams = queryString.split('&');
@@ -76,14 +76,14 @@ if (!$tool.isResponse) {
         } else if (carrier.test(pair[0])) {
             pair[1] = 'Verizon'; 
           queryParams[i] = pair.join('=');
-        } else if (tz_offset.test(pair[0])) {
-            pair[1] = '-18000'; 
-          queryParams[i] = pair.join('=');
+        // } else if (tz_offset.test(pair[0])) {
+        //     pair[1] = '-18000'; 
+        //   queryParams[i] = pair.join('=');
         } else if (tz_name.test(pair[0])) {
             pair[1] = 'America/New_York'; 
           queryParams[i] = pair.join('=');
         } else if (timezone.test(pair[0])) {
-            pair[1] = '-5'; 
+            pair[1] = '-4'; 
           queryParams[i] = pair.join('=');
         }
     }
