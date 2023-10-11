@@ -68,22 +68,22 @@ if (!$tool.isResponse) {
            pair[1] = 'us';
            queryParams[i] = pair.join('=');
         } else if(region.test(pair[0])) {
-          pair[1] = 'US';
+          pair[1] = 'KR';
           queryParams[i] = pair.join('=');
         } else if(mcc_mnc.test(pair[0])) {
-            pair[1] = '310005'; 
+            pair[1] = '45005'; 
           queryParams[i] = pair.join('=');
         } else if (carrier.test(pair[0])) {
-            pair[1] = 'Verizon'; 
+            pair[1] = 'SKT'; 
           queryParams[i] = pair.join('=');
         // } else if (tz_offset.test(pair[0])) {
         //     pair[1] = '-18000'; 
         //   queryParams[i] = pair.join('=');
         } else if (tz_name.test(pair[0])) {
-            pair[1] = 'America/New_York'; 
+            pair[1] = 'Asia/Seoul'; 
           queryParams[i] = pair.join('=');
         } else if (timezone.test(pair[0])) {
-            pair[1] = '-4'; 
+            pair[1] = '9'; 
           queryParams[i] = pair.join('=');
         }
     }
