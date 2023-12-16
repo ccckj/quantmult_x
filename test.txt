@@ -1,0 +1,237 @@
+{
+    "dns": {
+        "servers": [
+            {
+                "tag": "remote",
+                "address": "https://1.1.1.1/dns-query",
+                "detour": "select"
+            },
+            {
+                "tag": "local",
+                "address": "https://223.5.5.5/dns-query",
+                "detour": "direct"
+            },
+            {
+                "address": "rcode://success",
+                "tag": "block"
+            }
+        ],
+        "rules": [
+            {
+                "outbound": [
+                    "any"
+                ],
+                "server": "local"
+            },
+            {
+                "disable_cache": true,
+                "geosite": [
+                    "category-ads-all"
+                ],
+                "server": "block"
+            },
+            {
+                "clash_mode": "global",
+                "server": "remote"
+            },
+            {
+                "clash_mode": "direct",
+                "server": "local"
+            },
+            {
+                "geosite": "cn",
+                "server": "local"
+            }
+        ],
+        "strategy": "prefer_ipv4"
+    },
+    "inbounds": [
+        {
+            "type": "tun",
+            "inet4_address": "172.19.0.1/30",
+            "inet6_address": "2001:0470:f9da:fdfa::1/64",
+            "sniff": true,
+            "sniff_override_destination": true,
+            "domain_strategy": "prefer_ipv4",
+            "stack": "mixed",
+            "strict_route": true,
+            "mtu": 9000,
+            "endpoint_independent_nat": true,
+            "auto_route": true
+        },
+        {
+            "type": "socks",
+            "tag": "socks-in",
+            "listen": "127.0.0.1",
+            "sniff": true,
+            "sniff_override_destination": true,
+            "domain_strategy": "prefer_ipv4",
+            "listen_port": 2333,
+            "users": []
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "sniff": true,
+            "sniff_override_destination": true,
+            "domain_strategy": "prefer_ipv4",
+            "listen": "127.0.0.1",
+            "listen_port": 2334,
+            "users": []
+        }
+    ],
+  "experimental": {
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "secret": "",
+      "store_selected": true
+    }
+  },
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  "outbounds": [
+    {
+      "tag": "select",
+      "type": "selector",
+      "default": "urltest",
+      "outbounds": [
+        "urltest",
+        "sing-box-reality",
+        "sing-box-hysteria2",
+        "sing-box-vmess"
+      ]
+    },
+    {
+      "type": "vless",
+      "tag": "sing-box-reality",
+      "uuid": "dff84301-da1e-4c1c-ad89-375c5f66d516",
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "xudp",
+      "server": "74.226.240.109",
+      "server_port": 8000,
+      "tls": {
+        "enabled": true,
+        "server_name": "itunes.apple.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "chrome"
+        },
+        "reality": {
+          "enabled": true,
+          "public_key": "DaSW7-M3XBEB55rUR61Q_ScEC3DDTNwO_B4V0kw3cRU",
+          "short_id": "fc870578352787fe"
+        }
+      }
+    },
+    {
+            "type": "hysteria2",
+            "server": "74.226.240.109",
+            "server_port": 8001,
+            "tag": "sing-box-hysteria2",
+
+            "up_mbps": 100,
+            "down_mbps": 100,
+            "password": "31c20aba74032c9b",
+            "tls": {
+                "enabled": true,
+                "server_name": "bing.com",
+                "insecure": true,
+                "alpn": [
+                    "h3"
+                ]
+            }
+        },
+        {
+            "server": "speed.cloudflare.com",
+            "server_port": 443,
+            "tag": "sing-box-vmess",
+            "tls": {
+                "enabled": true,
+                "server_name": "journey-considered-kde-chubby.trycloudflare.com",
+                "insecure": true,
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                }
+            },
+            "transport": {
+                "headers": {
+                    "Host": [
+                        "journey-considered-kde-chubby.trycloudflare.com"
+                    ]
+                },
+                "path": "07d2134cad66",
+                "type": "ws"
+            },
+            "type": "vmess",
+            "security": "auto",
+            "uuid": "367d831e-88a1-4dc4-90ca-65b67d447acf"
+        },
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+    {
+      "tag": "block",
+      "type": "block"
+    },
+    {
+      "tag": "dns-out",
+      "type": "dns"
+    },
+    {
+      "tag": "urltest",
+      "type": "urltest",
+      "outbounds": [
+        "sing-box-reality",
+        "sing-box-hysteria2",
+        "sing-box-vmess"
+      ]
+    }
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "geosite": "category-ads-all",
+        "outbound": "block"
+      },
+      {
+        "outbound": "dns-out",
+        "protocol": "dns"
+      },
+      {
+        "clash_mode": "direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "global",
+        "outbound": "select"
+      },
+      {
+        "geoip": [
+          "cn",
+          "private"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": "geolocation-!cn",
+        "outbound": "select"
+      },
+      {
+        "geosite": "cn",
+        "outbound": "direct"
+      }
+    ],
+    "geoip": {
+            "download_detour": "select"
+        },
+    "geosite": {
+            "download_detour": "select"
+        }
+  }
+}
