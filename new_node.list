@@ -27,7 +27,7 @@ dns:
       - 240.0.0.0/4
 
 proxies:
-  - name: Reality
+  - name: JP-Reality
     type: vless
     server: 74.226.240.109
     port: 8658
@@ -42,7 +42,7 @@ proxies:
       public-key: LhoDq21PvIi3V3VcvyEWdpGakSV3jYJISHvVUXLgjSA
       short-id: 2eeed0176e0f0a7a
 
-  - name: Hysteria2
+  - name: JP-Hysteria2
     type: hysteria2
     server: 74.226.240.109
     port: 8443
@@ -54,7 +54,7 @@ proxies:
     skip-cert-verify: true
     alpn:
       - h3
-  - name: Vmess
+  - name: JP-Vmess
     type: vmess
     server: speed.cloudflare.com
     port: 443
