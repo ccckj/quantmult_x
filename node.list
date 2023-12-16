@@ -1,2 +1,4 @@
 vmess://YXV0bzo2ZGY5ZTQ0MS0xZTZiLTRiNTctYTA0Yy1mYjFjZjgyYTNmNWRANzQuMjI2LjI0MC4xMDk6NDIzMzM?remarks=jp&obfs=none&alterId=0
-hysteria2://7d098788b29b4e9a@74.226.240.109:8443?insecure=1&sni=bing.com
+hysteria2://7d098788b29b4e9a@74.226.240.109:8443?peer=bing.com&insecure=1&obfs=none#JP-HY
+vmess://YXV0bzpjZGE5YThlOC0zNGNkLTQwNjQtYjM5ZS0yNDBhZTg2MjZjOTJAc3BlZWQuY2xvdWRmbGFyZS5jb206NDQz?remarks=jp-vmess-tls&obfsParam=im-shell-edwards-bottle.trycloudflare.com&path=d8eb33ade090&obfs=websocket&tls=1&peer=im-shell-edwards-bottle.trycloudflare.com&alterId=0
+vmess://YXV0bzpjZGE5YThlOC0zNGNkLTQwNjQtYjM5ZS0yNDBhZTg2MjZjOTJAc3BlZWQuY2xvdWRmbGFyZS5jb206ODA?remarks=jp-vmess&obfsParam=im-shell-edwards-bottle.trycloudflare.com&path=d8eb33ade090&obfs=websocket&alterId=0
